@@ -14,20 +14,6 @@ const allowedCors = [
 
 const app = express();
 
-mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
-  useNewUrlParser: true,
-});
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-app.use(routes);
-/* app.use(errorLogger); */
-app.use(errors());
-
-app.use(errorHandler);
-
 app.use((req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
@@ -50,4 +36,19 @@ app.use((req, res, next) => {
 
   return next();
 });
+
+mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
+  useNewUrlParser: true,
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+app.use(routes);
+/* app.use(errorLogger); */
+app.use(errors());
+
+app.use(errorHandler);
+
 app.listen(3000);
