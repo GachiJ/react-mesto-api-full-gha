@@ -1,0 +1,13 @@
+.popup__success_type_ok {
+  display: block;
+  background-image: url(../../../../images/OK.svg);
+  width: 120px;
+  height: 120px;
+  margin: 50px auto 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__success_type_ok {
+    margin-top: 60px;
+  }
+}

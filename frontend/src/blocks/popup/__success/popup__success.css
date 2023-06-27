@@ -1,0 +1,17 @@
+.popup__success {
+  position: relative;
+  width: 280px;
+  height: 308px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__success {
+    width: 430px;
+    height: 330px;
+  }
+}

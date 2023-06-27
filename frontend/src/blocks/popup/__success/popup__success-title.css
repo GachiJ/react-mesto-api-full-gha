@@ -1,0 +1,15 @@
+.popup__success-title {
+  font-weight: 900;
+  color: black;
+  margin: 40px 18px 50px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__success-title {
+    margin: 32px 36px 60px;
+    font-size: 24px;
+    line-height: 29px;
+  }
+}

@@ -1,0 +1,22 @@
+.header__menu-button_type_opened{
+   background-image: url(../../../../images/ButtonMenu.svg);
+  width: 27px;
+  height: 25px;
+  padding: 0;
+  margin: 0 27px 0 0;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  background-position: center;
+}
+
+@media screen and (min-width: 1280px) {
+  .header__menu-button_type_opened {
+    display: none;
+  }
+}
+
+
+.header__menu-button_type_opened:hover {
+  opacity: .6;
+}
