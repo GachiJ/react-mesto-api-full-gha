@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.100.247
 
-Frontend https://...
+Frontend https://mestohostfront.nomoreparties.sbs
 
-Backend https://...
+Backend https://apimestohostback.nomoreparties.sbs

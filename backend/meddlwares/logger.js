@@ -1,4 +1,4 @@
-/* const winston = require('winston');
+const winston = require('winston');
 const expressWinston = require('express-winston');
 
 // создадим логгер запросов
@@ -20,4 +20,4 @@ const errorLogger = expressWinston.errorLogger({
 module.exports = {
   requestLogger,
   errorLogger,
-}; */
+};

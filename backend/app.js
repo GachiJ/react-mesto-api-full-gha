@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes');
 const errorHandler = require('./meddlwares/error-handler');
-/* const { errorLogger } = require('./meddlwares/logger'); */
+const { errorLogger, requestLogger } = require('./meddlwares/logger');
+
 const allowedCors = [
   'https://mestohostfront.nomoreparties.sbs',
   'http://mestohostfront.nomoreparties.sbs',
@@ -46,7 +47,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(routes);
-/* app.use(errorLogger); */
+app.use(requestLogger);
+app.use(errorLogger);
 app.use(errors());
 
 app.use(errorHandler);
