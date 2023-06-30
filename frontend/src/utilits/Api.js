@@ -48,7 +48,7 @@ class Api {
         link: link,
       })
     })
-      .then(res => this._checkResponse(res))
+      .then(res => this._checkResponse(res), console.log("fdf"))
   }
 
   changeAvatar({ avatar }) {
