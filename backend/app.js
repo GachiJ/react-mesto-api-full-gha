@@ -46,8 +46,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(routes);
 app.use(requestLogger);
+app.use(routes);
 app.use(errorLogger);
 app.use(errors());
 
