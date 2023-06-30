@@ -131,7 +131,7 @@ const login = (req, res, next) => {
       } else if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
       }
-      return next(new InternalServerError('Внутрення серверная ошибка'));
+      next(new InternalServerError('Внутрення серверная ошибка'));
     });
 };
 
