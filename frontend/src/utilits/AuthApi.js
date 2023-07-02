@@ -19,7 +19,7 @@ class AuthApi {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
     })
-      .then((res => this._checkResponse(res)))
+      .then(res => this._checkResponse(res))
   }
 
 
@@ -29,7 +29,7 @@ class AuthApi {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
     })
-      .then((res => this._checkResponse(res)))
+      .then(res => this._checkResponse(res))
   }
 
   checkToken(token) {
@@ -40,7 +40,7 @@ class AuthApi {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res => this._checkResponse(res)));
+      .then(res => this._checkResponse(res));
   }
 
 }

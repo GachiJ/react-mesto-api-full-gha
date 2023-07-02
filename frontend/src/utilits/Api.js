@@ -1,5 +1,3 @@
-import { Cookies } from 'react-cookie';
-
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -98,14 +96,11 @@ class Api {
   }
 }
 
-const cookies = new Cookies();
-const token = cookies.get('jwt'); 
-
 const config = {
   baseUrl: 'https://apimestohostback.nomoreparties.sbs',
   headers: {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${token}`,
+    authorization: `Bearer ${localStorage.getItem('token')}`
   }
 }
 
