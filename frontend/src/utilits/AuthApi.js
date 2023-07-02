@@ -50,5 +50,8 @@ class AuthApi {
 
 
 
-const authApi = new AuthApi({ baseUrl: 'https://apimestohostback.nomoreparties.sbs' });
+const authApi = new AuthApi({
+  baseUrl: 'https://apimestohostback.nomoreparties.sbs',
+  credentials: 'include',
+});
 export default authApi;
