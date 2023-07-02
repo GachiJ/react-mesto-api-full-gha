@@ -76,7 +76,7 @@ function App() {
       authApi.checkToken()
         .then((user) => {
           setIsLoggedIn(true);
-          setHeaderEmail(user.data.email)
+          setHeaderEmail(user.email)
           navigate('/')
         })
         .catch((err) => console.log(err))
