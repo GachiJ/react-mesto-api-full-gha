@@ -10,6 +10,8 @@ const { errorLogger, requestLogger } = require('./meddlwares/logger');
 const allowedCors = [
   'https://mestohostfront.nomoreparties.sbs',
   'http://mestohostfront.nomoreparties.sbs',
+  'https://apimestohostback.nomoreparties.sbs',
+  'http://apimestohostback.nomoreparties.sbs',
   'localhost:3000',
 ];
 

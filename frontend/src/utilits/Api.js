@@ -1,3 +1,8 @@
+import { Cookies } from 'react-cookie';
+
+const cookies = new Cookies();
+const token = cookies.get('jwt'); 
+
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -97,10 +102,10 @@ class Api {
 }
 
 const config = {
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-62',
+  baseUrl: 'https://apimestohostback.nomoreparties.sbs',
   headers: {
-    authorization: '1e912130-5c1b-460f-93df-a70f02284c65',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    authorization: `Bearer ${token}`,
   }
 }
 
