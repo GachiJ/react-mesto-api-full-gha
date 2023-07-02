@@ -34,12 +34,13 @@ class AuthApi {
       .then(res => this._checkResponse(res))
   }
 
-  checkToken(token) {
+  checkToken() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem('token')}`
       },
     })
       .then(res => this._checkResponse(res));

@@ -72,7 +72,7 @@ function App() {
   function tokenCheck() {
     const token = localStorage.getItem("token");
     if (token) {
-      authApi.checkToken(token)
+      authApi.checkToken()
         .then((user) => {
           setIsLoggedIn(true);
           setHeaderEmail(user.data.email)
