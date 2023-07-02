@@ -17,6 +17,7 @@ import ImagePopup from './ImagePopup.js';
 import api from '../utilits/Api';
 import authApi from '../utilits/AuthApi.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import Cookies from 'js-cookie';
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
 
 
   function tokenCheck() {
-    const token = localStorage.getItem("token");
+    const token = Cookies.get('token');
     if (token) {
       authApi.checkToken()
         .then((user) => {
