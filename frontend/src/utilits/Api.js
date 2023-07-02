@@ -1,8 +1,5 @@
 import { Cookies } from 'react-cookie';
 
-const cookies = new Cookies();
-const token = cookies.get('jwt'); 
-
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -100,6 +97,9 @@ class Api {
       .then(res => this._checkResponse(res))
   }
 }
+
+const cookies = new Cookies();
+const token = cookies.get('jwt'); 
 
 const config = {
   baseUrl: 'https://apimestohostback.nomoreparties.sbs',
