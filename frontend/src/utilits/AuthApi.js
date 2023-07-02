@@ -1,7 +1,6 @@
 class AuthApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-
   }
 
   _checkResponse(res) {
