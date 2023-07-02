@@ -14,7 +14,8 @@ class Api {
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include'
     })
       .then(res => this._checkResponse(res));
   }
@@ -22,6 +23,7 @@ class Api {
   setUserInfo({ name, about, avatar }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -34,7 +36,8 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include'
     })
       .then(res => this._checkResponse(res))
   }
@@ -42,6 +45,7 @@ class Api {
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -54,6 +58,7 @@ class Api {
   changeAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar: avatar
@@ -66,6 +71,7 @@ class Api {
     const method = isLiked ? 'PUT' : 'DELETE';
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: method,
+      credentials: 'include',
       headers: this._headers
     })
       .then(res => this._checkResponse(res))
@@ -74,6 +80,7 @@ class Api {
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     })
       .then(res => this._checkResponse(res))
@@ -82,6 +89,7 @@ class Api {
   cardLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
+      credentials: 'include',
       headers: this._headers
     })
       .then(res => this._checkResponse(res))
@@ -90,6 +98,7 @@ class Api {
   deleteCardLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     })
       .then(res => this._checkResponse(res))
@@ -100,8 +109,8 @@ const config = {
   baseUrl: 'https://apimestohostback.nomoreparties.sbs',
   headers: {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`
-  }
+  },
+  credentials: 'include'
 }
 
 const api = new Api(config);
