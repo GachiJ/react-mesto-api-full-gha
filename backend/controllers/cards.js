@@ -46,7 +46,7 @@ const deleteCardById = (req, res, next) => {
       return Card.findByIdAndDelete(req.params.cardId);
     })
     .then((card) => {
-      res.status(200).send({ card });
+      res.status(200).send(card);
     })
     .catch(next);
 };
@@ -63,7 +63,7 @@ const likeCard = (req, res, next) => {
   )
     .orFail(new Error('Card not found'))
     .then((card) => {
-      res.status(200).send({ card });
+      res.status(200).send(card);
     })
     .catch((err) => {
       if (err.message === 'Card not found') {
@@ -88,7 +88,7 @@ const deleteLike = (req, res, next) => {
   )
     .orFail(new Error('Card not found'))
     .then((card) => {
-      res.status(200).send({ card });
+      res.status(200).send(card);
     })
     .catch((err) => {
       if (err.message === 'Card not found') {
