@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 class AuthApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
@@ -34,12 +36,13 @@ class AuthApi {
   }
 
   checkToken() {
+    const token = Cookies.get('token');
+
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
       },
     })
       .then(res => this._checkResponse(res));
