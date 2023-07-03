@@ -108,6 +108,7 @@ function App() {
         .then((user) => {
           console.log(user.email);
           setHeaderEmail(user.email);
+          setIsLoggedIn(true);
           navigate('/');
         })
         .catch((err) => console.log(err));
