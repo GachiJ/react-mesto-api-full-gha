@@ -60,6 +60,7 @@ function App() {
         setIsLoggedIn(true);
         setHeaderEmail(email);
         Cookies.set('jwt', data.jwt, { expires: 7 });
+        console.log(data.jwt);
         navigate('/');
 
       })
