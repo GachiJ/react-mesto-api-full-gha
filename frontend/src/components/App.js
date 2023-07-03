@@ -59,8 +59,6 @@ function App() {
       .then((data) => {
         setIsLoggedIn(true);
         setHeaderEmail(email);
-        Cookies.set('token', data.token, { expires: 7 });
-        console.log(data.token);
         navigate('/');
 
       })
