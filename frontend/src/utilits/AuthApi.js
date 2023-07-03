@@ -42,7 +42,7 @@ class AuthApi {
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${Cookies.get('jwt')}`
+        "Authorization": `Bearer ${Cookies.get('token')}`
       },
     })
       .then(res => this._checkResponse(res));
