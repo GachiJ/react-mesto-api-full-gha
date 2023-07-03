@@ -17,6 +17,7 @@ import ImagePopup from './ImagePopup.js';
 import api from '../utilits/Api';
 import authApi from '../utilits/AuthApi.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import Cookies from 'js-cookie';
 
 
 
@@ -33,6 +34,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [headerEmail, setHeaderEmail] = React.useState("")
   const navigate = useNavigate();
+  
 
 
 
@@ -55,10 +57,9 @@ function App() {
   function handleLoginUser({ email, password }) {
     authApi.loginUser({ email, password })
       .then((data) => {
-
         setIsLoggedIn(true);
         setHeaderEmail(email)
-        localStorage.setItem("token", data.token);
+        Cookies.set('token', data.token, { expires: 7 });
         navigate('/');
 
       })
@@ -70,7 +71,7 @@ function App() {
   }
 
 
-  /*   function tokenCheck() {
+/*     function tokenCheck() {
       if (isLoggedIn) {
         authApi.checkToken()
           .then((user) => {
@@ -119,7 +120,8 @@ function App() {
     }
   }, [isLoggedIn, navigate]);
 
-
+  
+  
 
 
 
