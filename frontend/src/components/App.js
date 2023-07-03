@@ -86,7 +86,7 @@ function App() {
   
     useEffect(() => {
       tokenCheck()
-    }, []) 
+    }, [isLoggedIn]) 
 
   /*  useEffect(() => {
      const tokenCheck = () => {
