@@ -40,8 +40,8 @@ function App() {
 
 
   useEffect(() => {
+    tokenCheck();
     if (isLoggedIn) {
-      tokenCheck();
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardsData]) => {
           setCards(cardsData)
