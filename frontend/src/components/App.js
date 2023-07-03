@@ -70,12 +70,12 @@ function App() {
   }
 
 
-  /* function tokenCheck() {
+  function tokenCheck() {
     authApi.checkToken()
       .then((user) => {
+        setIsLoggedIn(true);
         if (isLoggedIn) {
           console.log(user.email);
-          setIsLoggedIn(true);
           setHeaderEmail(user.email);
           navigate('/');
         }
@@ -86,9 +86,9 @@ function App() {
   useEffect(() => {
     tokenCheck();
     console.log(isLoggedIn);
-  }, [isLoggedIn]) */
+  }, [isLoggedIn])
 
-  /*  useEffect(() => {
+  /* useEffect(() => {
      const tokenCheck = () => {
        authApi.checkToken()
          .then((user) => {
@@ -101,20 +101,20 @@ function App() {
      };
  
      tokenCheck();
-   }, [navigate]); */
+   }, [navigate]);  */
 
-  useEffect(() => {
-    authApi.checkToken()
-      .then((user) => {
-        if (isLoggedIn) {
-          console.log(user.email);
-          setHeaderEmail(user.email);
-          setIsLoggedIn(true);
-          navigate('/');
-        }
-      })
-      .catch((err) => console.log(err));
-  }, [isLoggedIn]);
+  /*  useEffect(() => {
+     if (!isLoggedIn) {
+       authApi.checkToken()
+         .then((user) => {
+           console.log(user.email);
+           setHeaderEmail(user.email);
+           setIsLoggedIn(true);
+           navigate('/');
+         })
+         .catch((err) => console.log(err));
+     };
+   }, [isLoggedIn]); */
 
 
 
