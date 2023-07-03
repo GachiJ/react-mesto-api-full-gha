@@ -123,6 +123,7 @@ function App() {
 
   function handleSignOut() {
     setIsLoggedIn(false);
+    Cookies.remove('token');
     navigate('/sign-in')
   }
 
