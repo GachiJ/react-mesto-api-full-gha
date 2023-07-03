@@ -70,37 +70,24 @@ function App() {
   }
 
 
-  /*   function tokenCheck() {
-      if (isLoggedIn) {
-        authApi.checkToken()
-          .then((user) => {
-            console.log(user.email);
-            setIsLoggedIn(true);
-            setHeaderEmail(user.email)
-            navigate('/')
-          })
-          .catch((err) => console.log(err))
-      }
-    }
-  
-    useEffect(() => {
-      tokenCheck()
-    }, []) */
-
-  useEffect(() => {
-    const tokenCheck = () => {
+  function tokenCheck() {
+    if (isLoggedIn) {
       authApi.checkToken()
         .then((user) => {
           console.log(user.email);
           setIsLoggedIn(true);
-          setHeaderEmail(user.email);
-          navigate('/');
+          setHeaderEmail(user.email)
+          navigate('/')
         })
-        .catch((err) => console.log(err));
-    };
+        .catch((err) => console.log(err))
+    }
+  }
 
-    tokenCheck();
-  }, [navigate]);
+  useEffect(() => {
+    tokenCheck()
+  }, [navigate])
+
+
 
 
 
