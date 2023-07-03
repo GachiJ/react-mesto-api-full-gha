@@ -47,14 +47,14 @@ class AuthApi {
 
   logout() {
 
-    return fetch('/logout', {
+    return fetch(`${this._baseUrl}/logout`, {
       method: 'POST',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then(res => this._checkResponse(res))
+      .then(res => this._checkResponse(res)) 
   }
 }
 
