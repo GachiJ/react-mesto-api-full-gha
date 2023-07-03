@@ -94,15 +94,17 @@ function App() {
           .then((user) => {
             console.log(user.email);
             setIsLoggedIn(true);
-            setHeaderEmail(user.email)
-            navigate('/')
+            setHeaderEmail(user.email);
+            navigate('/');
           })
-          .catch((err) => console.log(err))
+          .catch((err) => console.log(err));
       }
-    }
+    };
 
     tokenCheck();
   }, [isLoggedIn, navigate]);
+
+
 
 
   function handleSignOut() {
