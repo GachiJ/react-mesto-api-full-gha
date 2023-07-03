@@ -3,7 +3,6 @@ const AuthError = require('./errors/AuthError');
 
 const auth = (req, res, next) => {
   const token = req.cookies.jwt;
-  console.log(token);
 
   if (!token) {
     return next(new AuthError('Требуется авторизация'));

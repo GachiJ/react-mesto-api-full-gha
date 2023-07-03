@@ -70,7 +70,7 @@ function App() {
   }
 
 
-  function tokenCheck() {
+  /* function tokenCheck() {
     authApi.checkToken()
       .then((user) => {
         if (isLoggedIn) {
@@ -86,7 +86,7 @@ function App() {
   useEffect(() => {
     tokenCheck();
     console.log(isLoggedIn);
-  }, [isLoggedIn])
+  }, [isLoggedIn]) */
 
   /*  useEffect(() => {
      const tokenCheck = () => {
@@ -103,8 +103,8 @@ function App() {
      tokenCheck();
    }, [navigate]); */
 
-  /*  useEffect(() => {
-     if (!isLoggedIn) {
+   useEffect(() => {
+     if (isLoggedIn) {
        authApi.checkToken()
          .then((user) => {
            console.log(user.email);
@@ -114,7 +114,7 @@ function App() {
          })
          .catch((err) => console.log(err));
      };
-   }, [isLoggedIn]); */
+   }, [isLoggedIn]);
 
 
 
@@ -152,7 +152,6 @@ function App() {
   function handleUpdateAvatar(avatar) {
     api.changeAvatar(avatar)
       .then((res) => {
-        console.log(res)
         setCurrentUser(res)
         closeAllPopups()
       })
@@ -163,7 +162,6 @@ function App() {
     api.addNewCard(cardInfo)
       .then((data) => {
         const newCard = data;
-        console.log(newCard)
         setCards([newCard, ...cards]);
         closeAllPopups()
       })
