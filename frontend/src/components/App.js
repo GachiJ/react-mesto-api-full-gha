@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
+      tokenCheck();
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardsData]) => {
           setCards(cardsData)
@@ -74,20 +75,14 @@ function App() {
   function tokenCheck() {
     authApi.checkToken()
       .then((user) => {
-        if (isLoggedIn) {
-          setIsLoggedIn(true);
-          console.log(user.email);
-          setHeaderEmail(user.email);
-          navigate('/');
-        }
+        setIsLoggedIn(true);
+        console.log(user.email);
+        setHeaderEmail(user.email);
+        navigate('/');
       })
       .catch((err) => console.log(err))
   }
 
-  useEffect(() => {
-    tokenCheck();
-    console.log(isLoggedIn);
-  }, [isLoggedIn])
 
   /* useEffect(() => {
      const tokenCheck = () => {
