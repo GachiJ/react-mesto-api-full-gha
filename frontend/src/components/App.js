@@ -59,13 +59,13 @@ function App() {
       .then((data) => {
         setIsLoggedIn(true);
         setHeaderEmail(email);
-        Cookies.set('jwt', data.jwt, { expires: 7 });
-        console.log(data.jwt);
+        Cookies.set('token', data.token, { expires: 7 });
+        console.log(data.token);
         navigate('/');
 
       })
       .catch((err) => {
-        setIsSuccess(false); // fail
+        setIsSuccess(false); 
         setIsInfoTooltipPopupOpen(true)
         console.log(err);
       })
