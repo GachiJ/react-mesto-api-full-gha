@@ -89,20 +89,18 @@ function App() {
 
   useEffect(() => {
     const tokenCheck = () => {
-      if (isLoggedIn) {
-        authApi.checkToken()
-          .then((user) => {
-            console.log(user.email);
-            setIsLoggedIn(true);
-            setHeaderEmail(user.email);
-            navigate('/');
-          })
-          .catch((err) => console.log(err));
-      }
+      authApi.checkToken()
+        .then((user) => {
+          console.log(user.email);
+          setIsLoggedIn(true);
+          setHeaderEmail(user.email);
+          navigate('/');
+        })
+        .catch((err) => console.log(err));
     };
 
     tokenCheck();
-  }, [isLoggedIn, navigate]);
+  }, [navigate]);
 
 
 
