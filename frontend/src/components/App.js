@@ -100,18 +100,13 @@ function App() {
      };
    }, [isLoggedIn]); */
 
-
-
-
-
-
   function handleSignOut() {
     authApi.logout()
       .then(() => {
         setIsLoggedIn(false);
-        navigate('/sign-in')
+        navigate('/sign-in');
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }
 
   function handleRegisterUser({ email, password }) {
