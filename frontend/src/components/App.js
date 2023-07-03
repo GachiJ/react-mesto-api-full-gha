@@ -58,7 +58,7 @@ function App() {
     authApi.loginUser({ email, password })
       .then((data) => {
         setIsLoggedIn(true);
-        setHeaderEmail(email)
+        setHeaderEmail(email);
         Cookies.set('token', data.token, { expires: 7 });
         navigate('/');
 
@@ -77,8 +77,8 @@ function App() {
             if (isLoggedIn) {
               console.log(user.email);
             setIsLoggedIn(true);
-            setHeaderEmail(user.email)
-            navigate('/')
+            setHeaderEmail(user.email);
+            navigate('/');
             }
           })
           .catch((err) => console.log(err))

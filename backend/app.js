@@ -16,7 +16,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
 
 app.use(cors({
   credentials: true,
-  origin: 'https://mestohostfront.nomoreparties.sbs'
+  origin: 'https://mestohostfront.nomoreparties.sbs',
 }));
 
 app.use(bodyParser.json());
