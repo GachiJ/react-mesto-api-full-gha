@@ -85,7 +85,8 @@ function App() {
     }
   
     useEffect(() => {
-      tokenCheck()
+      tokenCheck();
+      console.log(isLoggedIn);
     }, [isLoggedIn]) 
 
   /*  useEffect(() => {
