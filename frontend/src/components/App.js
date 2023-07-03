@@ -56,7 +56,8 @@ function App() {
 
   function handleLoginUser({ email, password }) {
     authApi.loginUser({ email, password })
-      .then(() => {
+      .then((data) => {
+        console.log(data)
         setIsLoggedIn(true);
         setHeaderEmail(email);
         navigate('/');
@@ -73,8 +74,8 @@ function App() {
   function tokenCheck() {
     authApi.checkToken()
       .then((user) => {
-        setIsLoggedIn(true);
         if (isLoggedIn) {
+          setIsLoggedIn(true);
           console.log(user.email);
           setHeaderEmail(user.email);
           navigate('/');
