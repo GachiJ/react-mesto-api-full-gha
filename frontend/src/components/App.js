@@ -123,7 +123,7 @@ function App() {
 
   function handleSignOut() {
     setIsLoggedIn(false);
-    Cookies.remove('token');
+    Cookies.remove('jwt');
     navigate('/sign-in')
   }
 
