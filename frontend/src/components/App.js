@@ -48,8 +48,7 @@ function App() {
 
   function handleLoginUser({ email, password }) {
     authApi.loginUser({ email, password })
-      .then((data) => {
-        console.log(data)
+      .then(() => {
         setIsLoggedIn(true);
         setHeaderEmail(email);
       })
