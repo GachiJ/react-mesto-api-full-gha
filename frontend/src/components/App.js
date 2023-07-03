@@ -34,7 +34,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [headerEmail, setHeaderEmail] = React.useState("")
   const navigate = useNavigate();
-  
+
 
 
 
@@ -56,37 +56,37 @@ function App() {
 
   function handleLoginUser({ email, password }) {
     authApi.loginUser({ email, password })
-      .then((data) => {
+      .then(() => {
         setIsLoggedIn(true);
         setHeaderEmail(email);
         navigate('/');
 
       })
       .catch((err) => {
-        setIsSuccess(false); 
+        setIsSuccess(false);
         setIsInfoTooltipPopupOpen(true)
         console.log(err);
       })
   }
 
 
-   function tokenCheck() {
-        authApi.checkToken()
-          .then((user) => {
-            if (isLoggedIn) {
-              console.log(user.email);
-            setIsLoggedIn(true);
-            setHeaderEmail(user.email);
-            navigate('/');
-            }
-          })
-          .catch((err) => console.log(err))
-    }
-  
-    useEffect(() => {
-      tokenCheck();
-      console.log(isLoggedIn);
-    }, [isLoggedIn]) 
+  function tokenCheck() {
+    authApi.checkToken()
+      .then((user) => {
+        if (isLoggedIn) {
+          console.log(user.email);
+          setIsLoggedIn(true);
+          setHeaderEmail(user.email);
+          navigate('/');
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+
+  useEffect(() => {
+    tokenCheck();
+    console.log(isLoggedIn);
+  }, [isLoggedIn])
 
   /*  useEffect(() => {
      const tokenCheck = () => {
@@ -103,21 +103,21 @@ function App() {
      tokenCheck();
    }, [navigate]); */
 
- /*  useEffect(() => {
-    if (!isLoggedIn) {
-      authApi.checkToken()
-        .then((user) => {
-          console.log(user.email);
-          setHeaderEmail(user.email);
-          setIsLoggedIn(true);
-          navigate('/');
-        })
-        .catch((err) => console.log(err));
-    };
-  }, [isLoggedIn]); */
+  /*  useEffect(() => {
+     if (!isLoggedIn) {
+       authApi.checkToken()
+         .then((user) => {
+           console.log(user.email);
+           setHeaderEmail(user.email);
+           setIsLoggedIn(true);
+           navigate('/');
+         })
+         .catch((err) => console.log(err));
+     };
+   }, [isLoggedIn]); */
 
-  
-  
+
+
 
 
 

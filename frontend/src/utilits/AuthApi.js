@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 class AuthApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
