@@ -87,20 +87,37 @@ function App() {
       tokenCheck()
     }, []) */
 
+  /*  useEffect(() => {
+     const tokenCheck = () => {
+       authApi.checkToken()
+         .then((user) => {
+           console.log(user.email);
+           setIsLoggedIn(true);
+           setHeaderEmail(user.email);
+           navigate('/');
+         })
+         .catch((err) => console.log(err));
+     };
+ 
+     tokenCheck();
+   }, [navigate]); */
+
   useEffect(() => {
     const tokenCheck = () => {
       authApi.checkToken()
         .then((user) => {
           console.log(user.email);
-          setIsLoggedIn(true);
           setHeaderEmail(user.email);
           navigate('/');
         })
         .catch((err) => console.log(err));
     };
 
-    tokenCheck();
-  }, [navigate]);
+    if (isLoggedIn) {
+      tokenCheck();
+    }
+  }, [isLoggedIn, navigate]);
+
 
 
 
