@@ -8,10 +8,9 @@ const NotFoundError = require('../meddlwares/errors/NotFoundError');
 
 router.post('/signin', validationLogin, login);
 router.post('/signup', validationCreatUser, createUser);
-router.post('/logout', getLogout);
 
 router.use(auth);
-
+router.get('/logout', getLogout);
 router.use(userRoutes);
 router.use(cardRoutes);
 router.use((req, res, next) => {

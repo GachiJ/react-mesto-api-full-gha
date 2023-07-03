@@ -48,7 +48,7 @@ class AuthApi {
   logout() {
 
     return fetch(`${this._baseUrl}/logout`, {
-      method: 'POST',
+      method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
