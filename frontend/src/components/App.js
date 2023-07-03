@@ -114,7 +114,7 @@ function App() {
         navigate('/sign-in')
       })
       .catch((err) => {
-        setIsSuccess(false); // fail
+        setIsSuccess(false); 
         console.log(err);
       })
       .finally(() => setIsInfoTooltipPopupOpen(true));
