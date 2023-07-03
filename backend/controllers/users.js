@@ -136,7 +136,7 @@ const login = (req, res, next) => {
 };
 
 const getLogout = (req, res) => {
-  res.clearCookie('token').send({ message: 'Выход' });
+  res.clearCookie('jwt').send({ message: 'Выход' });
 };
 
 module.exports = {

@@ -111,6 +111,7 @@ function App() {
         setIsLoggedIn(false);
         navigate('/sign-in')
       })
+      .catch((err) => console.log(err))
   }
 
   function handleRegisterUser({ email, password }) {
