@@ -46,9 +46,13 @@ class AuthApi {
   }
 
   logout() {
+
     return fetch('/logout', {
       method: 'GET',
       credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then(res => this._checkResponse(res))
   }
