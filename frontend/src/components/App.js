@@ -103,18 +103,18 @@ function App() {
      tokenCheck();
    }, [navigate]); */
 
-   useEffect(() => {
-     if (isLoggedIn) {
-       authApi.checkToken()
-         .then((user) => {
-           console.log(user.email);
-           setHeaderEmail(user.email);
-           setIsLoggedIn(true);
-           navigate('/');
-         })
-         .catch((err) => console.log(err));
-     };
-   }, [isLoggedIn]);
+  useEffect(() => {
+    authApi.checkToken()
+      .then((user) => {
+        if (isLoggedIn) {
+          console.log(user.email);
+          setHeaderEmail(user.email);
+          setIsLoggedIn(true);
+          navigate('/');
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [isLoggedIn]);
 
 
 
