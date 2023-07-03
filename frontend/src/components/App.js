@@ -17,7 +17,7 @@ import ImagePopup from './ImagePopup.js';
 import api from '../utilits/Api';
 import authApi from '../utilits/AuthApi.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import Cookies from 'js-cookie';
+
 
 
 function App() {
@@ -70,21 +70,40 @@ function App() {
   }
 
 
-  function tokenCheck() {
-    if (isLoggedIn) {
-      authApi.checkToken()
-        .then((user) => {
-          setIsLoggedIn(true);
-          setHeaderEmail(user.email)
-          navigate('/')
-        })
-        .catch((err) => console.log(err))
+  /*   function tokenCheck() {
+      if (isLoggedIn) {
+        authApi.checkToken()
+          .then((user) => {
+            console.log(user.email);
+            setIsLoggedIn(true);
+            setHeaderEmail(user.email)
+            navigate('/')
+          })
+          .catch((err) => console.log(err))
+      }
     }
-  }
+  
+    useEffect(() => {
+      tokenCheck()
+    }, []) */
 
   useEffect(() => {
-    tokenCheck()
-  }, [])
+    const tokenCheck = () => {
+      if (isLoggedIn) {
+        authApi.checkToken()
+          .then((user) => {
+            console.log(user.email);
+            setIsLoggedIn(true);
+            setHeaderEmail(user.email)
+            navigate('/')
+          })
+          .catch((err) => console.log(err))
+      }
+    }
+
+    tokenCheck();
+  }, [isLoggedIn, navigate]);
+
 
   function handleSignOut() {
     setIsLoggedIn(false);
