@@ -110,11 +110,11 @@ const login = (req, res, next) => {
       bcrypt.compare(String(password), user.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const token = jsonWebToken.sign({
+            const jwt = jsonWebToken.sign({
               _id: user._id,
             }, 'SECRET');
 
-            res.cookie('token', token, {
+            res.cookie('jwt', jwt, {
               maxAge: 7 * 24 * 60 * 60 * 1000,
               httpOnly: true,
               sameSite: true,
