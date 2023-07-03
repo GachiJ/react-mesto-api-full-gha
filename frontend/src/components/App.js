@@ -17,9 +17,6 @@ import ImagePopup from './ImagePopup.js';
 import api from '../utilits/Api';
 import authApi from '../utilits/AuthApi.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import Cookies from 'js-cookie';
-
-
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -35,10 +32,6 @@ function App() {
   const [headerEmail, setHeaderEmail] = React.useState("")
   const navigate = useNavigate();
 
-
-
-
-
   useEffect(() => {
     tokenCheck();
     if (isLoggedIn) {
@@ -53,9 +46,6 @@ function App() {
 
   }, [isLoggedIn])
 
-
-
-
   function handleLoginUser({ email, password }) {
     authApi.loginUser({ email, password })
       .then((data) => {
@@ -69,7 +59,6 @@ function App() {
         console.log(err);
       })
   }
-
 
   function tokenCheck() {
     authApi.checkToken()
@@ -117,9 +106,11 @@ function App() {
 
 
   function handleSignOut() {
-    setIsLoggedIn(false);
-    Cookies.remove('jwt');
-    navigate('/sign-in')
+    authApi.logout()
+      .then(() => {
+        setIsLoggedIn(false);
+        navigate('/sign-in')
+      })
   }
 
   function handleRegisterUser({ email, password }) {

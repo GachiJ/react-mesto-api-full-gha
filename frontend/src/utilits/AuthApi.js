@@ -45,10 +45,14 @@ class AuthApi {
       .then(res => this._checkResponse(res));
   }
 
+  logout() {
+    return fetch('/logout', {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then(res => this._checkResponse(res))
+  }
 }
-
-
-
 
 const authApi = new AuthApi({
   baseUrl: 'https://apimestohostback.nomoreparties.sbs',
