@@ -71,8 +71,7 @@ function App() {
 
 
   function tokenCheck() {
-    const token = Cookies.get('token');
-    if (token) {
+    if (isLoggedIn) {
       authApi.checkToken()
         .then((user) => {
           setIsLoggedIn(true);

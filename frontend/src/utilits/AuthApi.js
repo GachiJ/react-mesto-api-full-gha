@@ -36,13 +36,13 @@ class AuthApi {
   }
 
   checkToken() {
-    const token = Cookies.get('token');
 
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${Cookies.get('token')}`
       },
     })
       .then(res => this._checkResponse(res));
