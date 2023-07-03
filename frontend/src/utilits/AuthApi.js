@@ -54,7 +54,7 @@ class AuthApi {
         "Content-Type": "application/json",
       },
     })
-      .then(res => this._checkResponse(res)) 
+      .then(res => this._checkResponse(res))
   }
 }
 
