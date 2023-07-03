@@ -104,7 +104,7 @@ function App() {
    }, [navigate]); */
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
       authApi.checkToken()
         .then((user) => {
           console.log(user.email);
