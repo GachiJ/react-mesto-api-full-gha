@@ -34,7 +34,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [headerEmail, setHeaderEmail] = React.useState("")
   const navigate = useNavigate();
-  
+
 
 
 
@@ -71,22 +71,22 @@ function App() {
   }
 
 
-/*     function tokenCheck() {
-      if (isLoggedIn) {
-        authApi.checkToken()
-          .then((user) => {
-            console.log(user.email);
-            setIsLoggedIn(true);
-            setHeaderEmail(user.email)
-            navigate('/')
-          })
-          .catch((err) => console.log(err))
+  /*     function tokenCheck() {
+        if (isLoggedIn) {
+          authApi.checkToken()
+            .then((user) => {
+              console.log(user.email);
+              setIsLoggedIn(true);
+              setHeaderEmail(user.email)
+              navigate('/')
+            })
+            .catch((err) => console.log(err))
+        }
       }
-    }
-  
-    useEffect(() => {
-      tokenCheck()
-    }, []) */
+    
+      useEffect(() => {
+        tokenCheck()
+      }, []) */
 
   /*  useEffect(() => {
      const tokenCheck = () => {
@@ -104,20 +104,21 @@ function App() {
    }, [navigate]); */
 
   useEffect(() => {
-    if (isLoggedIn) {
-      authApi.checkToken()
-        .then((user) => {
+    authApi.checkToken()
+      .then((user) => {
+        if (isLoggedIn) {
           console.log(user.email);
           setHeaderEmail(user.email);
           setIsLoggedIn(true);
           navigate('/');
-        })
-        .catch((err) => console.log(err));
-    };
+        }
+      })
+      .catch((err) => console.log(err));
+
   }, [isLoggedIn]);
 
-  
-  
+
+
 
 
 
