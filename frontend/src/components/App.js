@@ -46,6 +46,7 @@ function App() {
         .then(([userData, cardsData]) => {
           setCards(cardsData)
           setCurrentUser(userData)
+          navigate('/');
         })
         .catch((err) => console.log(err))
     }
@@ -61,8 +62,6 @@ function App() {
         console.log(data)
         setIsLoggedIn(true);
         setHeaderEmail(email);
-        navigate('/');
-
       })
       .catch((err) => {
         setIsSuccess(false);
