@@ -7,6 +7,8 @@ const BadRequestError = require('../meddlwares/errors/BadRequestError');
 const ConflictError = require('../meddlwares/errors/ConflictError');
 const AuthError = require('../meddlwares/errors/AuthError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.status(200).send(users))
@@ -110,9 +112,11 @@ const login = (req, res, next) => {
       bcrypt.compare(String(password), user.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const jwt = jsonWebToken.sign({
-              _id: user._id,
-            }, 'SECRET');
+            const jwt = jsonWebToken.sign(
+              { _id: user._id },
+              NODE_ENV === 'production' ? JWT_SECRET : 'some-key',
+              { expiresIn: '7d' },
+            );
 
             res.cookie('jwt', jwt, {
               maxAge: 7 * 24 * 60 * 60 * 1000,
