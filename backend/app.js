@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 const cors = require('cors');
 const routes = require('./routes');
 const errorHandler = require('./meddlwares/error-handler');
 const { errorLogger, requestLogger } = require('./meddlwares/logger');
 
 const app = express();
+app.use(helmet());
+
+const { PORT = 3000, DB_URL = 'mongodb://0.0.0.0:27017/mestodb' } = process.env;
 
 mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
   useNewUrlParser: true,
@@ -16,7 +20,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
 
 app.use(cors({
   credentials: true,
-  origin: 'https://mestohostfront.nomoreparties.sbs',
+  origin: DB_URL,
 }));
 
 app.use(bodyParser.json());
@@ -36,4 +40,4 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(3000);
+app.listen(PORT);
